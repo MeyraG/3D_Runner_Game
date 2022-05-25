@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 995501138868621181, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
+      propertyPath: sidesForce
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
 --- !u!1001 &251807812
@@ -3493,6 +3497,17 @@ PrefabInstance:
       objectReference: {fileID: 1027625953}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d66633e7ad85c64f9e46b4af0149ead, type: 3}
+--- !u!114 &3692339566692692920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3692339566278829272, guid: 3d66633e7ad85c64f9e46b4af0149ead, type: 3}
+  m_PrefabInstance: {fileID: 3692339566692692919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687675242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4a5163313383c4391ed5a029c3d167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4249903215380814920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3639,6 +3654,10 @@ PrefabInstance:
       propertyPath: levelCompUI
       value: 
       objectReference: {fileID: 687675242}
+    - target: {fileID: 6692753030871011209, guid: 13e1d06b942096f48b067c85c6835f58, type: 3}
+      propertyPath: levelComplete
+      value: 
+      objectReference: {fileID: 3692339566692692920}
     - target: {fileID: 6692753030871011254, guid: 13e1d06b942096f48b067c85c6835f58, type: 3}
       propertyPath: m_RootOrder
       value: 6

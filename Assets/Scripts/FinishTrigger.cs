@@ -11,6 +11,6 @@ public class FinishTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         gameManager.LevelComplete();
-        gameManager.player.gameObject.GetComponent<PlayerControl>().enabled = false;
+        FindObjectOfType<LevelComplete>().LoadNextLevel();
     }
 }

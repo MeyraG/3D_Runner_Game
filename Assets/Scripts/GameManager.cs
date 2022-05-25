@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
-    public float delay = 0.4f;
+    public float delay = 4f;
     public Transform player;
 
     public GameObject levelCompUI;
@@ -29,15 +29,13 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        if (gameHasEnded == false)
+        if (!gameHasEnded)
         {
             gameHasEnded = true;
             Debug.Log("Game Over");
            
-            Invoke("Restart", delay);
-         
-        }
-       
+            Invoke("Restart", delay);         
+        }     
     }
 
 
