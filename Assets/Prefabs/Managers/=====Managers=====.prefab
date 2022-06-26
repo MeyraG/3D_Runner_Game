@@ -75,5 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelCompUI: {fileID: 0}
+  _gravityForce: -12
   _nextLevelDelay: 1
   _restartGameDelay: 1

@@ -128,8 +128,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f99065906cd84c4fa35068a35d2c3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardForce: 2000
-  _sidesForce: 0.1
+  _floatingJoystick: {fileID: 0}
+  _moveSpeed: 20
+  _jumpForce: 8
+  _groundCheckSphereRadius: 0.4
+  _boundX: 6.6
+  _groundDistance: 0
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &995501138868621154
 MonoBehaviour:
   m_ObjectHideFlags: 0
