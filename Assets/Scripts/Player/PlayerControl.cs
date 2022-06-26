@@ -1,21 +1,45 @@
+using System;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] private float _forwardForce = 2000f; 
-    [SerializeField] private float _sidesForce = 0.3f;
-    
-    private Rigidbody _rigidbody;
-    private Vector3 _firstPosition, _endPosition;
-    
-    private float _boundX = 6.6f;
+    [SerializeField] private FloatingJoystick _floatingJoystick;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _boundX = 6.6f;
 
-    private void Awake()
+    public void OnDelta(Vector2 onDelta)
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        Vector3 newPos = transform.localPosition;
+        newPos.x += onDelta.x;
+        
+        newPos.x = Mathf.Clamp(newPos.x, -_boundX, _boundX);
+        
+        transform.localPosition = newPos;
     }
 
-    void FixedUpdate()
+    private void Update()
+    {
+        // Player moves continuously to forward!
+        transform.Translate(Vector3.forward * (_moveSpeed * Time.deltaTime));
+    }
+
+    //Floating Joystick Movement.
+    //But we are gonna implement the Jump mechanic.
+    //If we want to move player continuously to the direction that we want then we can use Joystick
+    /*private void Update()
+    {
+        Vector3 newPos = transform.localPosition;
+
+        float joystickX = _floatingJoystick.Horizontal;
+
+        newPos.x += joystickX * _moveSpeed * Time.deltaTime;
+        
+        newPos.x = Mathf.Clamp(newPos.x, -_boundX, _boundX);
+        
+        transform.localPosition = newPos;
+    }*/
+
+    /*void FixedUpdate()
     {
         _rigidbody.AddForce(0, 0, _forwardForce * Time.deltaTime);
 
@@ -63,5 +87,5 @@ public class PlayerControl : MonoBehaviour
         {
             GameManager.Instance.LevelFailed();
         }
-    }
+    }*/
 }
