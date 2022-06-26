@@ -287,21 +287,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 995501138868621154, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 995501138868621179, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 995501138868621181, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
-      propertyPath: sidesForce
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 995501138868621181, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
-      propertyPath: forwardForce
-      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 995501138868621181, guid: 85b8496c011f197468ffafbd40e142d9, type: 3}
       propertyPath: _floatingJoystick
@@ -462,7 +450,7 @@ GameObject:
   - component: {fileID: 504214744}
   - component: {fileID: 504214743}
   - component: {fileID: 504214742}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1957,6 +1945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: =====LeanTouches=====
       objectReference: {fileID: 0}
+    - target: {fileID: 5875675035184970641, guid: 72bad675394af08439e32ed4c1334ff1, type: 3}
+      propertyPath: onDelta.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 162447451}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72bad675394af08439e32ed4c1334ff1, type: 3}
 --- !u!1001 &3692339566692692919
@@ -2211,6 +2203,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9149733255129365845, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.882285
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149733255129365845, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.488888
+      objectReference: {fileID: 0}
     - target: {fileID: 9149733255637316218, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
       propertyPath: m_Name
       value: =====Cameras=====
@@ -2258,6 +2258,14 @@ PrefabInstance:
     - target: {fileID: 9149733255637316221, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149733256320378974, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.882285
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149733256320378974, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.488888
       objectReference: {fileID: 0}
     - target: {fileID: 9149733256320378975, guid: e377e5155ba6f7c41a7c432727d7321f, type: 3}
       propertyPath: m_Follow

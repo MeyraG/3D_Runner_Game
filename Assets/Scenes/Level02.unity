@@ -784,6 +784,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: =====LeanTouches=====
       objectReference: {fileID: 0}
+    - target: {fileID: 5875675035184970641, guid: 72bad675394af08439e32ed4c1334ff1, type: 3}
+      propertyPath: onDelta.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 162447451}
+    - target: {fileID: 5875675035184970641, guid: 72bad675394af08439e32ed4c1334ff1, type: 3}
+      propertyPath: onDelta.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSwipeUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72bad675394af08439e32ed4c1334ff1, type: 3}
 --- !u!1001 &478775930
@@ -1015,7 +1023,7 @@ GameObject:
   - component: {fileID: 504214744}
   - component: {fileID: 504214743}
   - component: {fileID: 504214742}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

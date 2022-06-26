@@ -1,20 +1,44 @@
 using System;
+using DG.Tweening;
+using Lean.Touch;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private FloatingJoystick _floatingJoystick;
+
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _jumpForce;
+    [SerializeField] private float _groundCheckSphereRadius;
     [SerializeField] private float _boundX = 6.6f;
+
+    private Rigidbody _rigidbody;
+    private int _sphereCastResultsCount;
+
+    private RaycastHit[] _sphereCastResults = new RaycastHit[1];
+    [SerializeField] private float _groundDistance;
+    [SerializeField] private LayerMask _groundMask;
+    private bool _isGrounded;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     public void OnDelta(Vector2 onDelta)
     {
         Vector3 newPos = transform.localPosition;
         newPos.x += onDelta.x;
-        
+
         newPos.x = Mathf.Clamp(newPos.x, -_boundX, _boundX);
-        
+
         transform.localPosition = newPos;
+    }
+
+    public void OnSwipeUp(Vector2 onDelta)
+    {
+        if (GroundCheck())
+            _rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
     }
 
     private void Update()
@@ -23,7 +47,33 @@ public class PlayerControl : MonoBehaviour
         transform.Translate(Vector3.forward * (_moveSpeed * Time.deltaTime));
     }
 
-    //Floating Joystick Movement.
+    private bool GroundCheck()
+    {
+        Vector3 playerOrigin = transform.position;
+        playerOrigin.y -= 1f;
+
+        //Ground Cast
+        //Generates no garbage. See: https://docs.unity3d.com/2020.3/Documentation/ScriptReference/Physics.SphereCastNonAlloc.html
+        _sphereCastResultsCount = Physics.SphereCastNonAlloc(playerOrigin, _groundCheckSphereRadius, Vector3.down,
+            _sphereCastResults, _groundDistance, _groundMask.value);
+
+        _isGrounded = _sphereCastResultsCount != 0;
+
+        return _isGrounded;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Vector3 playerOrigin = transform.position;
+        playerOrigin.y -= 1f;
+        
+        Gizmos.color = Color.red;
+        Debug.DrawLine(playerOrigin, playerOrigin + Vector3.down * _groundDistance, Color.green);
+        Gizmos.DrawWireSphere(playerOrigin + Vector3.down * _groundDistance, _groundCheckSphereRadius);
+    }
+
+    #region Floating Joystick Movement
+
     //But we are gonna implement the Jump mechanic.
     //If we want to move player continuously to the direction that we want then we can use Joystick
     /*private void Update()
@@ -38,6 +88,10 @@ public class PlayerControl : MonoBehaviour
         
         transform.localPosition = newPos;
     }*/
+
+    #endregion
+    
+    #region Old Move System
 
     /*void FixedUpdate()
     {
@@ -88,4 +142,6 @@ public class PlayerControl : MonoBehaviour
             GameManager.Instance.LevelFailed();
         }
     }*/
+
+    #endregion
 }

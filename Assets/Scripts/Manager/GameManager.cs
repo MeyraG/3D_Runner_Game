@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     [SerializeField] private GameObject _levelCompUI;
-    
+
+    [SerializeField] private float _gravityForce = -12f;
     [SerializeField] private float _nextLevelDelay = 1f;
     [SerializeField] private float _restartGameDelay = 1f;
     
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        Physics.gravity = Vector3.down * Mathf.Abs(_gravityForce);
     }
 
     public void StartGame()
